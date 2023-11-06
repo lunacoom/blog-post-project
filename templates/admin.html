@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title>Admin page</title>
+{% endblock %}
+
+
+{% block content %}
+
+{% if admin %}
+<center>
+    <h3 class="mt-5">Админ</h3>
+</center>
+
+<form class="w-50 border p-3 m-auto mt-5" action="/admin" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Title</label>
+        <input type="text" class="form-control" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Description</label>
+        <textarea name="description" class="form-control" cols="30" rows="10" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Image</label>
+        <input type="file" class="form-control" name="img" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% else %}
+<center>
+    <h3 class="mt-5">Вы не админ!</h3>
+</center>
+{% endif %}
+
+{% endblock %}
